@@ -29,6 +29,7 @@ mongoose.connect(secret.database, function(err) {
 app.use(express.static(__dirname + '/public'));
 app.use(morgan('dev'));
 app.use(bodyParser.json());
+app.use(bodyParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(session({
@@ -46,6 +47,7 @@ app.use(function(req, res, next) {
 });
 
 app.use(function(req, res, next) {
+  // find everything
   Category.find({}, function(err, categories) {
     if (err) return next(err);
     res.locals.categories = categories;
@@ -58,7 +60,7 @@ app.set('view engine', 'ejs');
 
 var mainRoutes = require('./routes/main');
 var userRoutes = require('./routes/user');
-var adminRoutes = requrie('./routes/admin');
+var adminRoutes = require('./routes/admin');
 var apiRoutes = require('./api/api');
 
 app.use(mainRoutes);

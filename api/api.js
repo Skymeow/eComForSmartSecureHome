@@ -6,17 +6,17 @@ var Product = require('../models/product');
 
 
 
-router.post('/search', function(req, res, next) {
-  console.log(req.body.search_term);
-  Product.search({
-    query_string: { query: req.body.search_term }
-  }, function(err, results) {
-    if (err) return next(err);
-    res.json(results);
-  });
-});
+// router.post('/search', function(req, res, next) {
+//   console.log(req.body.search_term);
+//   Product.search({
+//     query_string: { query: req.body.search_term }
+//   }, function(err, results) {
+//     if (err) return next(err);
+//     res.json(results);
+//   });
+// });
 
-
+// type in the catagory name that existed in the databse to search products
 router.get('/:name', function(req, res, next) {
     async.waterfall([
       function(callback) {
@@ -29,6 +29,7 @@ router.get('/:name', function(req, res, next) {
       function(category, callback) {
         for (var i = 0; i < 30; i++) {
           var product = new Product();
+          // store the product Id accosiated with the waterfall
           product.category = category._id;
           product.name = faker.commerce.productName();
           product.price = faker.commerce.price();

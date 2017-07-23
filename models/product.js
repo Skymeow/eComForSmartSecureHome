@@ -1,4 +1,4 @@
-var mongoose = requrie('mongoose');
+var mongoose = require('mongoose');
 var mongoosastic = require('mongoosastic');
 var Schema = mongoose.Schema;
 
@@ -9,9 +9,9 @@ var ProductionSchema = new Schema({
   image: String
 });
 
-ProductSchema.plugin(mongoosastic, {
-  hosts: [
-    'localhost:9200'
-  ]
-});
+// ProductSchema.plugin(mongoosastic, {
+//   hosts: [
+//     'localhost:9200'
+//   ]
+// });
 module.exports = mongoose.model('Product', ProductionSchema)
