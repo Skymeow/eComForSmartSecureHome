@@ -17,6 +17,8 @@ var User = require('./models/user');
 var Category = require('./models/category');
 var app = express();
 
+var cartLength = require('./middlewares/middlewares');
+
 mongoose.connect(secret.database, function(err) {
   if (err) {
     console.log(err);
@@ -41,6 +43,7 @@ app.use(session({
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(cartLength);
 app.use(function(req, res, next) {
   res.locals.user = req.user;
   next();
