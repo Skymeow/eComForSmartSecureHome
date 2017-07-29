@@ -33,7 +33,7 @@
           <li><a href="/login">Login</a></li>
         </ul>
       </li>
-
+      <li><a href="/login" class="glyphicon glyphicon-shopping-cart"><span class="badge">0</span></a></li>
      <% } else { %>
 
       <li><a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= user.profile.name %></a>
@@ -42,14 +42,9 @@
           <li><a href="/logout">Logout</a></li>
         </ul>
       </li>
+      <li><a href="/cart" class="glyphicon glyphicon-shopping-cart"><span class="badge"><%= cart %></span></a></li>
       <% } %>
-
-      <% if (user) { %>
-        <li><a href="/cart" class="glyphicon glyphicon-shopping-cart"><span class="badge"><%= cart %></span></a></li>
-      <% } else { %>
-        <li><a href="/cart" class="glyphicon glyphicon-shopping-cart"><span class="badge">0</span></a></li>
-        <% } %>
-    </ul>
+     </ul>
 
 
 

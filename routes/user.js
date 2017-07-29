@@ -93,7 +93,7 @@ router.post('/edit-profile', function(req, res, next) {
     user.save(function(err) {
       if (err) return next(err);
       req.flash('success', 'Successfully Edited your profile');
-      return res.redirect('/edit-profile');
+      return res.redirect('/profile');
     });
   });
 });

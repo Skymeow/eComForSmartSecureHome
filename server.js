@@ -31,8 +31,7 @@ mongoose.connect(secret.database, function(err) {
 app.use(express.static(__dirname + '/public'));
 app.use(morgan('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(session({
   resave: true,
