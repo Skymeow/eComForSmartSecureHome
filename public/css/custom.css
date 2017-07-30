@@ -11,3 +11,60 @@ body {
 .product-image {
   width: 100%;
 }
+
+/*for slides images*/
+#slide-show-container {
+/*width: 120%;*/
+}
+
+#slides {
+    position: relative;
+    height: 400px;
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+}
+
+.slide {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 1;
+
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    transition: opacity 1s;
+}
+
+
+
+.showing {
+    opacity: 1;
+    z-index: 2;
+}
+
+.slide {
+    box-sizing: border-box;
+    dispaly: inline-block;
+    color: #fff;
+}
+
+.slide:nth-of-type(1) {
+    background-image: url("http://www.whiterabbitalarm.com/wp-content/uploads/2016/02/Home-security-smart-home.jpg");
+}
+.slide:nth-of-type(2) {
+    background-image: url("http://www.dealerscope.com/thumb/?src=/wp-content/uploads/sites/5/2016/11/smart-home-tech.jpg&w=750&h=340");
+}
+.slide:nth-of-type(3) {
+    background-image: url("http://codigoblanco.mx/mg-content/uploads/images/Soluciones_hogar/Seguridad_inteligente/alertas_intantaneas.jpg");
+}
+.slide:nth-of-type(4) {
+    background-image: url("https://media.sandhills.com/img.axd?id=3004727987&wid=&p=&ext=&w=0&h=0&t=&lp=&c=True&wt=False&sz=Max&rt=0&checksum=Om3GAMvZbOMWhBBdDneqsofdT%2BjF7GiX");
+}
+.slide:nth-of-type(5) {
+    background-image: url("https://ak2.picdn.net/shutterstock/videos/3989224/thumb/1.jpg?i10c=img.resize(height:160)");
+}

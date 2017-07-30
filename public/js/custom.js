@@ -1,4 +1,14 @@
 $(function() {
+  var slides = document.querySelectorAll('#slides .slide')
+  var currentSlide = 0;
+  var slideInterval = setInterval(nextSlide,2000);
+
+function nextSlide() {
+    slides[currentSlide].className = 'slide';
+    currentSlide = (currentSlide+1)%slides.length;
+    // console.log("slidenum", currentSlide)
+    slides[currentSlide].className = 'slide showing';
+}
 
   Stripe.setPublishableKey('pk_test_NrRMr02JluF4XnZhuIcLpY7t');
 
