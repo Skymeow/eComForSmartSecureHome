@@ -1,3 +1,8 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
 body {
   padding-top: 100px;
 }
@@ -13,8 +18,9 @@ body {
 }
 
 /*for slides images*/
-#slide-show-container {
-/*width: 120%;*/
+
+.main-container {
+  width: 100%;
 }
 
 #slides {
@@ -22,7 +28,7 @@ body {
     height: 400px;
     padding: 0px;
     margin: 0px;
-    list-style-type: none;
+    width: 100%;
 }
 
 .slide {
@@ -33,25 +39,19 @@ body {
     height: 100%;
     opacity: 0;
     z-index: 1;
-
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     -webkit-transition: opacity 1s;
     -moz-transition: opacity 1s;
     -o-transition: opacity 1s;
     transition: opacity 1s;
 }
 
-
-
 .showing {
     opacity: 1;
     z-index: 2;
 }
 
-.slide {
-    box-sizing: border-box;
-    dispaly: inline-block;
-    color: #fff;
-}
 
 .slide:nth-of-type(1) {
     background-image: url("http://www.whiterabbitalarm.com/wp-content/uploads/2016/02/Home-security-smart-home.jpg");
@@ -68,3 +68,4 @@ body {
 .slide:nth-of-type(5) {
     background-image: url("https://ak2.picdn.net/shutterstock/videos/3989224/thumb/1.jpg?i10c=img.resize(height:160)");
 }
+
