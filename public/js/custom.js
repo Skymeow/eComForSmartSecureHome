@@ -1,4 +1,25 @@
 $(function() {
+  // live chat
+  var message = document.getElementById('message');
+  var handle = document.getElementById('handle');
+  var btn = document.getElementById('send');
+  var output = document.getElementById('output');
+
+  var socket = io();
+
+  //emit events
+  btn.addEventListener('click', function(){
+    socket.emit('chat', {
+      message: message.value,
+      handle: handle.value,
+    });
+  });
+
+  // listen for event in frontend
+  socket.on('chat', function(data){
+    output.innerHTML += '<p><strong>'+data.handle+':</strong>'+data.message+'</p>';
+  })
+  // slide show
   var slides = document.querySelectorAll('#slides .slide')
   var currentSlide = 0;
   var slideInterval = setInterval(nextSlide,2000);

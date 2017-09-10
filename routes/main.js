@@ -130,6 +130,10 @@ router.get('/', function(req, res) {
 
 });
 
+router.get('/chat', function(req, res) {
+  res.render('main/chat');
+})
+
 // router.get('/page/:page', function(req, res, next) {
 //   paginate(req,res,next);
 // });

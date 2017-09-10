@@ -1,4 +1,3 @@
-
 var express = require('express');
 var morgan = require('morgan');
 var mongoose = require('mongoose');
@@ -11,11 +10,12 @@ var flash = require('express-flash');
 var MongoStore = require('connect-mongo/es5')(session);
 var passport = require('passport');
 
-
 var secret = require('./config/secret');
 var User = require('./models/user');
 var Category = require('./models/category');
 var app = express();
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
 
 var cartLength = require('./middlewares/middlewares');
 
@@ -33,6 +33,15 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
+
+io.on('connection', function (socket) {
+  socket.on('chat', function(data) {
+    io.sockets.emit('chat', data);
+  })
+  socket.on('disconnect', function() {
+    console.log('user disconnected');
+  })
+})
 app.use(session({
   resave: true,
   saveUninitialized: true,
@@ -69,7 +78,8 @@ app.use(mainRoutes);
 app.use(userRoutes);
 app.use(adminRoutes);
 app.use('/api', apiRoutes);
-app.listen(secret.port, function(err) {
+
+server.listen(secret.port, function(err) {
   if (err) throw err;
   console.log("Server is Running on port " + secret.port);
 });

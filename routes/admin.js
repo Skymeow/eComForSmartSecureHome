@@ -5,6 +5,9 @@ router.get('/add-category', function(req, res, next) {
   res.render('admin/add-category', { message: req.flash('success') });
 });
 
+router.get('/admin-chat', function(req, res, next) {
+  res.render('admin/admin-chat', { message: req.flash('success') });
+});
 
 router.post('/add-category', function(req, res, next) {
   var category = new Category();
