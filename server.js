@@ -38,9 +38,9 @@ io.on('connection', function (socket) {
   socket.on('chat', function(data) {
     io.sockets.emit('chat', data);
   })
-  socket.on('disconnect', function() {
-    console.log('user disconnected');
-  })
+  // socket.on('disconnect', function() {
+  //   console.log('user disconnected');
+  // })
 })
 app.use(session({
   resave: true,

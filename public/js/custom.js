@@ -1,35 +1,46 @@
+
 $(function() {
-  // live chat
-  var message = document.getElementById('message');
-  var handle = document.getElementById('handle');
-  var btn = document.getElementById('send');
-  var output = document.getElementById('output');
+  // // live chat
+  // var message = $('#message').val();
+  // // var handle = document.getElementById('handle');
+  // // var btn = document.getElementById('send');
+  // var output = $('#output');
 
-  var socket = io();
+  // // var socket = io();
 
-  //emit events
-  btn.addEventListener('click', function(){
-    socket.emit('chat', {
-      message: message.value,
-      handle: handle.value,
-    });
-  });
+  // //emit events
+  // $('document').on('click', '#chat-send', function(e) {
+  //   // console.log('yo dat chat send clicked')
+  //   e.preventDefault();
+  //   console.log('yo dat chat send clicked')
 
-  // listen for event in frontend
-  socket.on('chat', function(data){
-    output.innerHTML += '<p><strong>'+data.handle+':</strong>'+data.message+'</p>';
-  })
+  //   socket.emit('chat', {
+  //     message: message,
+  //     handle: "you",
+  //   });
+  // });
+  // // btn.addEventListener('click', function(){
+  // //   socket.emit('chat', {
+  // //     message: message.value,
+  // //     handle: handle.value,
+  // //   });
+  // // });
+
+  // // listen for event in frontend
+  // socket.on('chat', function(data){
+  //   output.innerHTML += '<p><strong>'+data.handle+':</strong>'+data.message+'</p>';
+  // })
   // slide show
-  var slides = document.querySelectorAll('#slides .slide')
-  var currentSlide = 0;
-  var slideInterval = setInterval(nextSlide,2000);
+//   var slides = document.querySelectorAll('#slides .slide')
+//   var currentSlide = 0;
+//   var slideInterval = setInterval(nextSlide,2000);
 
-function nextSlide() {
-    slides[currentSlide].className = 'slide';
-    currentSlide = (currentSlide+1)%slides.length;
-    // console.log("slidenum", currentSlide)
-    slides[currentSlide].className = 'slide showing';
-}
+// function nextSlide() {
+//     slides[currentSlide].className = 'slide';
+//     currentSlide = (currentSlide+1)%slides.length;
+//     // console.log("slidenum", currentSlide)
+//     slides[currentSlide].className = 'slide showing';
+// }
 
   Stripe.setPublishableKey('pk_test_NrRMr02JluF4XnZhuIcLpY7t');
 
@@ -166,13 +177,6 @@ function nextSlide() {
     // Prevent the form from submitting with the default action
     return false;
   });
-
-
-
-
-
-
-
 
 
 

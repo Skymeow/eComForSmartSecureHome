@@ -69,3 +69,9 @@ body {
     background-image: url("https://ak2.picdn.net/shutterstock/videos/3989224/thumb/1.jpg?i10c=img.resize(height:160)");
 }
 
+#chat-window {
+  height: 100px;
+  /*background-color: grey;*/
+  overflow-y: scroll;
+}
+
